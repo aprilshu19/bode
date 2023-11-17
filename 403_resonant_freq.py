@@ -21,4 +21,4 @@ if rl > 0 and rc == 0:
     max_z = rl * math.sqrt(Q**2 * (1 + Q**2))
     print("Resonant frequency: " + str(max_z) + "rad/s")
 else:
-    print("Resonant frequency general case")
+    print("Resonant frequency general cases")
