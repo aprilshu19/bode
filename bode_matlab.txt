@@ -1,0 +1,39 @@
+To export data:
+w_v = [10:10:100]*2*pi;
+[mag,phase,wout] = bode(H, w_v);              
+mag = squeeze(mag);
+phase = squeeze(phase);
+fout = wout/(2*pi);                            
+BodeTable = table(fout,mag,phase)
+writetable(BodeTable)
+
+Steps for interactive bode plot:
+Want harmonic resonance at a certain frequency
+Specify frequency
+Calculate new capacitor value
+Change capacitor value in simulink
+Linearize and estimate new tf or use frequency response estimator block (FRE)
+(Need to make FRE block work)
+
+//--------------------------
+Model Linearizer
+System Response Method
+Analysis point, select input perturbation and output measurement
+Use step or impulse response to generate graph and export to matlab workspace
+tf(linsys)
+H = tf([ ], [ ]);
+bode(H)
+
+Frequency Response Method
+Create input signal and specify frequency range in sinestream
+Use bode response to generate graph
+System Identification Method
+Input Output Dataset Method
+To workspace blocks in circuit
+Modify the data format //permute(out.output(:,:,:),[3 2 1])
+Select poles and zeros, and other parameters
+Estimate
+Generate plot
+
+
+
